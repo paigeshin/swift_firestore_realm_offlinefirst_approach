@@ -111,9 +111,10 @@ class ItemStore: ObservableObject {
                             continue
                         }
                         try? self.realm.write({
-                            if let itemObject = self.realm.object(ofType: ItemObject.self, forPrimaryKey: try! ObjectId(string: networkItem.id)) {
-                                self.realm.delete(itemObject)
+                            guard let itemObject = self.realm.object(ofType: ItemObject.self, forPrimaryKey: try ObjectId(string: networkItem.id)) else {
+                                return
                             }
+                            self.realm.delete(itemObject)
                         })
                     }
                 }
@@ -163,5 +164,6 @@ class ItemStore: ObservableObject {
     }
     
 }
+
 
 ```
