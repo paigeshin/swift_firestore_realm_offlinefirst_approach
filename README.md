@@ -1,5 +1,7 @@
 # swift_firestore_realm_offlinefirst_approach
 
+Inspired by => https://developer.android.com/topic/architecture/data-layer/offline-first
+
 ```swift
 import Foundation
 import FirebaseFirestore
